@@ -662,7 +662,7 @@
 
 #fw_al_001 {
   overflow: hidden;
-  max-height: 750px;
+  max-height: 700;
   position: relative;
   background: #000;
 }
