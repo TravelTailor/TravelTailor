@@ -1,0 +1,11 @@
+{{#if userInSession}}
+  <h2>Welcome, {{userInSession.username}}!</h2>
+  <img src="{{userInSession.profileImg}}" alt="Profile picture" width="200" />
+  <br />
+  <a href="/">Home</a>
+  <br />
+  <a href="/logout">Logout</a>
+{{else}}
+  <a href="/login">Login</a>
+  <a href="/signup">Signup</a>
+{{/if}}
