@@ -6,20 +6,24 @@ const userSchema = new Schema(
     username: {
       type: String,
       trim: true,
-      required: false,
+      required: [true, "Username is required."],
       unique: true
     },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required."],
       unique: true,
       lowercase: true,
       trim: true
     },
-    password: {
+    passwordHash: {
       type: String,
-      required: true
-    }
+      required: [true, "Password is required."],
+    },
+    profileImg: {
+      type: String,
+      default: "https://i.stack.imgur.com/l60Hf.png",
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
