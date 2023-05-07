@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = new Router();
+const router = require('express').Router();
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 const User = require('../models/User.model');
@@ -70,7 +69,7 @@ router.post('/login', isLoggedOut, (req, res, next) => {
                 return;
             } else if (bcryptjs.compareSync(password, user.passwordHash)) {
                 req.session.currentUser = user;
-                res.redirect('/userProfile');
+                res.redirect('/search');
             } else {
                 res.render('auth/login', { errorMessage: 'Email or password is incorrect.' });
             }

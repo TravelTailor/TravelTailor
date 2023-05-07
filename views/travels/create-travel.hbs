@@ -1,0 +1,18 @@
+<h1>Create your travel</h1>
+
+<form action="/create-travel" method="POST">
+  <label for="city">City</label>
+  <input type="text" name="city" id="city" value="{{city}}" readonly />
+  <br />
+  <label for="startDate">Start date</label>
+  <input type="date" name="startDate" id="startDate" />
+  <br />
+  <label for="endDate">End date</label>
+  <input type="date" name="endDate" id="endDate" />
+  <br />
+  <label for="budget">Budget</label>
+  <input type="number" name="budget" id="budget" />
+  <br />
+  <button type="submit">Create</button>
+</form>
+ 
