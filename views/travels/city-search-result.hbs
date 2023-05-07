@@ -1,0 +1,13 @@
+<div>
+  <h1>{{city}}</h1>
+  {{#with result}}
+    <p>Weather: {{Summary}}</p>
+    <p>Temperature: {{Temperature}}ºC</p>
+    <p>Real feel: {{RealFeel}}ºC</p>
+    <p>Precipitation: {{Precipitation.Value}}mm</p>
+  {{/with}}
+
+  <a href="/search">Search again</a>
+  <br />
+  <a href="/create-travel">Create your trip to {{city}}!</a>
+</div>
