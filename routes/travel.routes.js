@@ -45,9 +45,11 @@ router.post('/create-travel/:city', isLoggedIn, (req, res, next) => {
     })
         .then(travel => {
             console.log('Newly created travel is: ', travel);
-            res.redirect('/travel-list');
+            res.redirect('/userProfile', { travel });
         })
         .catch(error => next(error));
 });
+
+//Edit travel form
 
 module.exports = router;
