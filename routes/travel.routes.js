@@ -21,9 +21,13 @@ router.get('/city-search', isLoggedIn, (req, res, next) => {
 
 
 //Create travel form
-router.get('/create-travel', isLoggedIn, (req, res, next) => res.render('travels/create-travel'));
+router.get('/create-travel/:city', isLoggedIn, (req, res, next) => {
+    const { city } = req.params;
 
-router.post('/create-travel', isLoggedIn, (req, res, next) => {
+    res.render('travels/create-travel', { city });
+});
+
+router.post('/create-travel/:city', isLoggedIn, (req, res, next) => {
     const { country, city, startDate, endDate, budget } = req.body;
 
     if (!country || !city || !startDate || !endDate || !budget) {
