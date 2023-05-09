@@ -90,4 +90,24 @@ router.get('/userProfile', isLoggedIn, (req, res, next) => {
     res.render('users/user-profile', { userInSession: req.session.currentUser });
 });
 
+//User profile edit
+router.get('/userProfile/:id/edit', isLoggedIn, (req, res, next) => {
+    User.findById(req.session.currentUser._id)
+        .then(user => {
+            console.log('User is: ', user);
+            res.render('users/user-profile-edit', { user });
+        })
+        .catch(error => next(error));
+});
+
+router.post('/userProfile/:id/edit', isLoggedIn, (req, res, next) => {
+    User.findByIdAndUpdate(req.session.currentUser._id, req.body, { new: true })
+        .then(updatedUser => {
+            console.log('Updated user is: ', updatedUser);
+            res.render('users/user-profile', { userInSession: updatedUser })
+        })
+        .catch(error => next(error));
+});
+
+
 module.exports = router;
