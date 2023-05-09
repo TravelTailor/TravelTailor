@@ -24,6 +24,9 @@ const userSchema = new Schema(
       type: String,
       default: "https://i.stack.imgur.com/l60Hf.png",
     },
+    name: {
+      type: String,
+    }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
