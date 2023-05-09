@@ -25,6 +25,10 @@ const travelSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
     },
+    tasks: [{
+        type: Schema.Types.ObjectId,
+        ref: "Task",
+    }]
 }, {
     timestamps: true
 });

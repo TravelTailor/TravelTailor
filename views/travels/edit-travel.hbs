@@ -1,0 +1,21 @@
+<H1>Edit your travel and add tasks!</H1>
+<div>
+    <form action="/travel-list/{{travel._id}}/edit" method="POST">
+        <label for="city">City</label>
+        <input type="text" name="city" id="city" value="{{travel.city}}" readonly />
+        <br />
+        <label for="country">Country</label>
+        <input type="text" name="country" id="country" value="{{travel.country}}" />
+        <br />
+        <label for="startDate">Start date</label>
+        <input type="date" name="startDate" id="startDate" value="{{travel.startDate}}" />
+        <br />
+        <label for="endDate">End date</label>
+        <input type="date" name="endDate" id="endDate" value="{{travel.endDate}}" />
+        <br />
+        <label for="budget">Budget</label>
+        <input type="number" name="budget" id="budget" value="{{travel.budget}}" />
+        <br />
+        <button type="submit">Edit</button>
+    </form>
+</div>

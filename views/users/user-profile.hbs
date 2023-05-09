@@ -2,6 +2,10 @@
   <h2>Welcome, {{userInSession.username}}!</h2>
   <img src="{{userInSession.profileImg}}" alt="Profile picture" width="200" />
   <br />
+  <a href="/travel-list">Your trips</a>
+  <br />
+  <a href="/userProfile/{{userInSession._id}}/edit">Edit your profile</a>
+  <br />
   <a href="/">Home</a>
   <br />
   <a href="/logout">Logout</a>
