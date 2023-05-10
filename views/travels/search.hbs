@@ -1,8 +1,31 @@
-<H1>Search your destination</H1>
 
-<div>
-    <form action="/city-search" method="GET">
-        <input type="text" placeholder="Search by destination" name="city"/>
-        <button type="submit">Search</button>
-    </form>
-</div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>seach</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Video-Parallax-Background-video-parallax.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center align-content-center video-parallax-container">
+        <div class="col-6">
+            <div class="row padMar">
+                <div class="col padMar">
+
+                        <form action="/city-search" method="GET">
+                    <div class="input-group"><input class="form-control autocomplete" type="text" placeholder="Search by destination" name="city"><button class="btn btn-warning" type="submit"><i class="fa fa-search"></i></button></div>
+                   </form> 
+                </div>
+            </div>
+        </div><video autoplay="" loop="" muted="">
+            <source src="./video/travel.mp4" type="video/mp4" wp-acf="[{'type':'url','name':'video','label':'Video','wrapper':{'width':30}}]" wp-attr="[{'target':'src','replace':'%1'}]">
+        </video>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Video-Parallax-Background-video-parallax.js"></script>
+</body>
+
+</html>
