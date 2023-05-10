@@ -61,6 +61,19 @@ router.get('/travel-list', isLoggedIn, (req, res, next) => {
         .catch(error => next(error));
 });
 
+//Travel details
+router.get('/travel-list/:travelId', isLoggedIn, (req, res, next) => {
+    const { travelId } = req.params;
+
+    Travel.findById(travelId)
+        .populate('tasks')
+        .then(travelFromDB => {
+            console.log('Travel from DB: ', travelFromDB);
+            res.render('travels/travel-details', { travel: travelFromDB });
+        })
+        .catch(error => next(error));
+});
+
 //Delete travel
 router.post('/travel-list/:travelId/delete', isLoggedIn, (req, res, next) => {
     const { travelId } = req.params;
@@ -74,7 +87,7 @@ router.post('/travel-list/:travelId/delete', isLoggedIn, (req, res, next) => {
 router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
     const { travelId } = req.params;
     Travel.findById(travelId)
-        // .populate('tasks')
+        .populate('tasks')
         .then(travelFromDB => {
             console.log('Travel from DB: ', travelFromDB);
             res.render('travels/edit-travel', { travel: travelFromDB });
