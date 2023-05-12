@@ -1,0 +1,16 @@
+<h1>Add tasks to your travel</h1>
+<form action="/travel-list/{{travelId}}/create-task" method="POST">
+  <label for="task">Task</label>
+  <input type="text" name="task" id="task" />
+   <label for="date">Date</label>
+  <input type="date" name="date" id="date" />
+  <label for="status">Status</label>
+    <select name="status" id="status">
+        <option value="Pending">Pending</option>
+        <option value="Done">Done</option>
+    </select>
+  <label for="price">Price</label>
+  <input type="number" name="price" id="price" />
+  <br />
+  <button type="submit">Add task</button>
+</form>
