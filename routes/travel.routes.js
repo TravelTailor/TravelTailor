@@ -83,7 +83,7 @@ router.post('/travel-list/:travelId/delete', isLoggedIn, (req, res, next) => {
         .catch(error => next(error));
 });
 
-//Edit travel and add tasks
+//Edit travel
 router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
     const { travelId } = req.params;
     Travel.findById(travelId)
@@ -97,11 +97,11 @@ router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
 
 router.post('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
     const { travelId } = req.params;
-    const { country, city, startDate, endDate, budget } = req.body;
-    Travel.findByIdAndUpdate(travelId, { country, city, startDate, endDate, budget }, { new: true })
+    const { country, city, travelImg, startDate, endDate, budget } = req.body;
+    Travel.findByIdAndUpdate(travelId, { country, city, travelImg, startDate, endDate, budget }, { new: true })
         .then(editedTravel => {
             console.log('Edited travel: ', editedTravel);
-            res.redirect('/travel-list');
+            res.redirect(`/travel-list/${travelId}`);
         })
         .catch(error => next(error));
 });
