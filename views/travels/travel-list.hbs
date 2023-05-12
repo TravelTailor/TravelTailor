@@ -1,6 +1,7 @@
 <h1>Your trips</h1>
 {{#each travels}}
 <div>
+  <img src="{{travelImg}}" alt="travel" height="150px">
   <h2>{{city}}</h2>
   <p>Country: {{country}}</p>
   <p>Start date: {{startDate}}</p>
@@ -13,10 +14,6 @@
     {{/each}}
   </ul>
 
-<a href="/travel-list/{{_id}}/edit">Edit travel</a>
-
-<form action="/travel-list/{{_id}}/delete" method="POST">
-  <button type="submit">Delete</button>
-</form>
+<a href="/travel-list/{{_id}}">Travel details</a>
 </div>
 {{/each}}

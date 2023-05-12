@@ -9,6 +9,10 @@ const travelSchema = new Schema({
         type: String,
         required: [true, "City is required."],
     },
+    travelImg: {
+        type: String,
+        default: "https://cdn-icons-png.flaticon.com/512/4164/4164916.png",
+    },
     startDate: {
         type: Date,
         required: [true, "Start date is required."],
