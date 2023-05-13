@@ -2,14 +2,14 @@
 <h1>{{travel.city}}</h1>
 
   <p>Country: {{travel.country}}</p>
-  <p>Start date: {{travel.startDate}}</p>
-  <p>End date: {{travel.endDate}}</p>
+  <p>Start date: {{formatDate travel.startDate}}</p>
+  <p>End date: {{formatDate travel.endDate}}</p>
   <p>Budget: {{travel.budget}}</p>
     <p>Tasks:</p>
     <ul>
       {{#each tasks}}
         <li><b>{{this.task}}:</b></li>
-        <li>{{this.date}}</li>
+        <li>{{formatDate this.date}}</li>
         <li>{{this.status}}</li>
         <li>{{this.price}}</li>
         <br />
