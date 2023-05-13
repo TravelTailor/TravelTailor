@@ -38,6 +38,19 @@ router.post("/travel-list/:travelId/create-task", (req, res, next) => {
         .catch((error) => next(error));
 });
 
+//Delete task
+router.post("/travel-list/:travelId/delete-task/:taskId", (req, res, next) => {
+    const { travelId, taskId } = req.params;
+
+    Task.findByIdAndDelete(taskId)
+        .then(() => res.redirect(`/travel-list/${travelId}`))
+        .catch((error) => {
+            console.log("Error while deleting task: ", error);
+
+            next(error);
+        });
+});
+
 //Create tasks with API OpenTripMap data
 router.get("travel-list/:travelId/create-task", (req, res, next) => {});
 

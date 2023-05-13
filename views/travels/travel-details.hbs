@@ -7,11 +7,16 @@
   <p>Budget: {{travel.budget}}</p>
     <p>Tasks:</p>
     <ul>
-      {{#each travel.tasks}}
-        <li>{{this.task}}</li>
+      {{#each tasks}}
+        <li><b>{{this.task}}:</b></li>
         <li>{{this.date}}</li>
         <li>{{this.status}}</li>
         <li>{{this.price}}</li>
+        <br />
+        <form action="/travel-list/{{../travel._id}}/delete-task/{{this._id}}" method="POST">
+          <button type="submit">Delete task</button>
+        </form>
+        <hr>
       {{/each}}
     </ul>
 <br />

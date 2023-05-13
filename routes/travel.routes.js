@@ -64,13 +64,14 @@ router.get('/travel-list', isLoggedIn, (req, res, next) => {
 //Travel details
 router.get('/travel-list/:travelId', isLoggedIn, (req, res, next) => {
     const { travelId } = req.params;
+    let travel;
 
     Travel.findById(travelId)
-        .populate('tasks')
         .then(travelFromDB => {
-            console.log('Travel from DB: ', travelFromDB);
-            res.render('travels/travel-details', { travel: travelFromDB });
+            travel = travelFromDB;
+            return Task.find({ travel: travelId });
         })
+        .then((tasksFromDB) => res.render('travels/travel-details', { travel, tasks: tasksFromDB }))
         .catch(error => next(error));
 });
 
