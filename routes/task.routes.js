@@ -6,13 +6,13 @@ const { isLoggedIn, isLoggedOut } = require("../middleware/route-guard.js");
 const apiKey = process.env.OPENTRIPMAP;
 
 //Create task form
-router.get("/travel-list/:travelId/create-task", (req, res, next) => {
+router.get("/travel-list/:travelId/create-task", isLoggedIn, (req, res, next) => {
   const { travelId } = req.params;
 
   res.render("tasks/create-task", { travelId });
 });
 
-router.post("/travel-list/:travelId/create-task", (req, res, next) => {
+router.post("/travel-list/:travelId/create-task", isLoggedIn, (req, res, next) => {
   const { task, date, status, price } = req.body;
   const { travelId } = req.params;
 
@@ -39,7 +39,7 @@ router.post("/travel-list/:travelId/create-task", (req, res, next) => {
 });
 
 //Delete task
-router.post("/travel-list/:travelId/delete-task/:taskId", (req, res, next) => {
+router.post("/travel-list/:travelId/delete-task/:taskId", isLoggedIn, (req, res, next) => {
   const { travelId, taskId } = req.params;
 
   Task.findByIdAndDelete(taskId)
