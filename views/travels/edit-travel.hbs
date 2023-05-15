@@ -1,4 +1,4 @@
-<H1>Edit your travel and add tasks!</H1>
+<H1>Edit your travel</H1>
 <div>
     <form action="/travel-list/{{travel._id}}/edit" method="POST">
         <label for="city">City</label>
@@ -7,18 +7,22 @@
         <label for="country">Country</label>
         <input type="text" name="country" id="country" value="{{travel.country}}" />
         <br />
-        <label for="startDate">Start date</label>
-        <input type="date" name="startDate" id="startDate" value="{{travel.startDate}}" />
+        <label for="startDate">New start date</label>
+        <input type="date" name="startDate" id="startDate" value="{{travel.startDate}}" required=""/>
+        <p>Original start date was: {{formatDate travel.startDate}}</p>
         <br />
-        <label for="endDate">End date</label>
-        <input type="date" name="endDate" id="endDate" value="{{travel.endDate}}" />
+        <label for="endDate">New end date</label>
+        <input type="date" name="endDate" id="endDate" value="{{travel.endDate}}" required=""/>
+        <p>Original end date was: {{formatDate travel.endDate}}</p>
         <br />
         <label for="budget">Budget</label>
-        <input type="number" name="budget" id="budget" value="{{travel.budget}}" />
+        <input type="number" name="budget" id="budget" value="{{travel.budget}}" required=""/>
         <br />
         <label for="travelImg">Travel picture</label>
         <input type="text" name="travelImg" id="travelImg" value="{{travel.travelImg}}" />
         <br />
         <button type="submit">Edit</button>
     </form>
+<br />
+<a href="/travel-list/{{travel._id}}">Back</a>
 </div>

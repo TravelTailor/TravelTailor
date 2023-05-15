@@ -9,7 +9,11 @@ const apiKey = process.env.OPENTRIPMAP;
 router.get("/travel-list/:travelId/create-task", isLoggedIn, (req, res, next) => {
   const { travelId } = req.params;
 
-  res.render("tasks/create-task", { travelId });
+  Travel.findById(travelId)
+    .then((travel) => {
+      res.render("tasks/create-task", { travel });
+    })
+    .catch((error) => next(error));
 });
 
 router.post("/travel-list/:travelId/create-task", isLoggedIn, (req, res, next) => {
