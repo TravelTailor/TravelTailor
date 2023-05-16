@@ -30,3 +30,14 @@
 </form>
 <br />
 <a href="/travel-list">Back to your travels</a>
+
+
+<script>
+  if ({{travel.tasks.length}} === 0) {
+    document.querySelector('ul').innerHTML = '<li>No tasks yet</li>'
+  }
+
+  if ({{travel.budget}} < ({{travel.tasks}}.reduce((acc, task) => acc + task.price, 0))) {
+    document.querySelector('ul').innerHTML += '<li>Over budget</li>'
+  }
+</script>

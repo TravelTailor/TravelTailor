@@ -15,7 +15,7 @@
             <div class="row profile-row">
                 <div class="col-md-4 relative">
                     <div class="avatar">
-                        <div>  <img src="{{userInSession.profileImg}}" alt="Profile picture" width="400" /></div>
+                        <div>  <img src="{{userInSession.profileImg}}" alt="Profile picture" width="300" /></div>
                     </div><input class="form-control form-control" type="file" name="avatar-file">
                 </div>
                 <div class="col-md-8">
@@ -32,10 +32,10 @@
                     <div class="form-group mb-3"><label class="form-label">Email </label><input class="form-control" type="email" autocomplete="off" required="" name="email" value="{{userInSession.email}}"></div>
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group mb-3"><label class="form-label">Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div>
+                            {{!-- <div class="form-group mb-3"><label class="form-label">Password </label><input class="form-control" type="password" name="password" autocomplete="off" required=""></div> --}}
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <div class="form-group mb-3"><label class="form-label">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required=""></div>
+                            {{!-- <div class="form-group mb-3"><label class="form-label">Confirm Password</label><input class="form-control" type="password" name="confirmpass" autocomplete="off" required=""></div> --}}
                         </div>
                     </div>
                     <hr>
@@ -43,16 +43,12 @@
                         <div class="col-md-12 content-right"><button class="btn btn-primary form-btn" type="submit">SAVE </button><button class="btn btn-danger form-btn" type="reset">CANCEL </button> 
                         
 
-
-
-
-
                         </div>
-                          <center><a href="/logout">Logout</a></center>
-                          <br />
                           <a href="/travel-list">Your trips</a>
                           <br />
                           <a href="/userProfile/{{userInSession._id}}/edit">Edit your profile</a>
+                          <br />
+                          <a href="/logout">Logout</a>
                           <br />
                     </div>
                 </div>
