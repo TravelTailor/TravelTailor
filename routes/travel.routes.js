@@ -35,7 +35,7 @@ router.get('/city-search', isLoggedIn, async(req, res, next) => {
             .getCurrentConditions(city, { unit: "Celsius" })
             .then(function(result) {
                 console.log(result);
-                res.render('travels/city-search-result', { city, latitude, longitude, result });
+                res.render('travels/city-search-result', { city, latitude, longitude, result, accessToken });
             })
             .catch(function(error) {
                 console.error(error);

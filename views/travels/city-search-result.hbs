@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 
 <div>
   <h1>{{city}}</h1>
@@ -33,12 +31,12 @@ require('dotenv').config();
 
   <script>
 
-    mapboxgl.accessToken = process.env.MAPBOX_API; // Access token de Mapbox
+    mapboxgl.accessToken = "{{accessToken}}"; // Access token de Mapbox
 
     // Crea una instancia del mapa
     var map = new mapboxgl.Map({
       container: 'map', // ID del elemento HTML donde se mostrará el mapa
-      style: 'mapbox://styles/mapbox/streets-14', // Estilo del mapa (puedes cambiarlo según tus necesidades)
+      style: 'mapbox://styles/mapbox/streets-v12', // Estilo del mapa (puedes cambiarlo según tus necesidades)
       center: [{{longitude}},{{latitude}}], // Coordenadas iniciales del centro del mapa (reemplaza LONGITUDE y LATITUDE con tus propias coordenadas)
       zoom: 12 // Nivel de zoom inicial
     });
