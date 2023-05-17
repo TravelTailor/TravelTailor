@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 <div>
   <h1>{{city}}</h1>
   {{#with result}}
@@ -29,7 +32,8 @@
   <a href="/create-travel/{{city}}">Create your trip to {{city}}!</a>
 
   <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYXlvemVtdCIsImEiOiJjbGg4MWFuaXMwNDNvM2RwbjBpMDU5d3BnIn0.qF6KE2gy5vwU0bW97zjfNQ'; // Reemplaza esto con tu propio access token de Mapbox
+
+    mapboxgl.accessToken = process.env.MAPBOX_API; // Access token de Mapbox
 
     // Crea una instancia del mapa
     var map = new mapboxgl.Map({

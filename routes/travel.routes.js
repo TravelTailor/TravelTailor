@@ -13,11 +13,7 @@ require('dotenv').config();
 router.get('/search', isLoggedIn, (req, res, next) => res.render('travels/search'));
 
 
-
-
-
-
-//intento 
+//Mapbox + Accuweather
 const axios = require('axios');
 
 router.get('/city-search', isLoggedIn, async(req, res, next) => {
@@ -50,20 +46,6 @@ router.get('/city-search', isLoggedIn, async(req, res, next) => {
         res.render('error', { message: 'Error en la solicitud de geocodificación' });
     }
 });
-
-
-// // //Search city backup
-// router.get('/city-search', isLoggedIn, (req, res, next) => {
-//     const { city } = req.query;
-
-
-//     accuweather
-//         .getCurrentConditions(city, { unit: "Celsius" })
-//         .then(function(result) {
-//             console.log(result);
-//             res.render('travels/city-search-result', { city, result });
-//         })
-// });
 
 
 
