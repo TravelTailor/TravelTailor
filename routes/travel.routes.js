@@ -4,21 +4,67 @@ const User = require('../models/User.model');
 const Task = require('../models/Task.model');
 const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard.js');
 const accuweather = require('node-accuweather')()(process.env.YOUR_API_KEY);
+const mapboxgl = require('mapbox-gl');
+const MapboxGeocoder = require('@mapbox/mapbox-gl-geocoder');
+require('dotenv').config();
+
 
 //Search index
 router.get('/search', isLoggedIn, (req, res, next) => res.render('travels/search'));
 
-//Search city
-router.get('/city-search', isLoggedIn, (req, res, next) => {
-    const { city } = req.query;
 
-    accuweather
-    .getCurrentConditions(city, {unit: "Celsius"})
-    .then(function(result) {
-     console.log(result);
-     res.render('travels/city-search-result', { city, result });
-  })
+
+
+
+
+//intento 
+const axios = require('axios');
+
+router.get('/city-search', isLoggedIn, async(req, res, next) => {
+    const { city } = req.query;
+    const accessToken = process.env.MAPBOX_API; // Access token de Mapbox
+
+    try {
+        const geocodeResponse = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(city)}.json`, {
+            params: {
+                access_token: accessToken
+            }
+        });
+
+        const coordinates = geocodeResponse.data.features[0].geometry.coordinates;
+        const longitude = coordinates[0];
+        const latitude = coordinates[1];
+
+        accuweather
+            .getCurrentConditions(city, { unit: "Celsius" })
+            .then(function(result) {
+                console.log(result);
+                res.render('travels/city-search-result', { city, latitude, longitude, result });
+            })
+            .catch(function(error) {
+                console.error(error);
+                res.render('error', { message: 'Error en la solicitud de condiciones actuales de AccuWeather' });
+            });
+    } catch (error) {
+        console.error(error);
+        res.render('error', { message: 'Error en la solicitud de geocodificación' });
+    }
 });
+
+
+// // //Search city backup
+// router.get('/city-search', isLoggedIn, (req, res, next) => {
+//     const { city } = req.query;
+
+
+//     accuweather
+//         .getCurrentConditions(city, { unit: "Celsius" })
+//         .then(function(result) {
+//             console.log(result);
+//             res.render('travels/city-search-result', { city, result });
+//         })
+// });
+
 
 
 //Create travel form
@@ -37,13 +83,13 @@ router.post('/create-travel/:city', isLoggedIn, (req, res, next) => {
     }
 
     Travel.create({
-        country,
-        city,
-        startDate,
-        endDate,
-        budget,
-        user: req.session.currentUser._id
-    })
+            country,
+            city,
+            startDate,
+            endDate,
+            budget,
+            user: req.session.currentUser._id
+        })
         .then(travel => {
             console.log('Newly created travel is: ', travel);
             res.redirect('/travel-list');
@@ -106,5 +152,13 @@ router.post('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
         })
         .catch(error => next(error));
 });
+
+
+
+
+
+
+
+
 
 module.exports = router;

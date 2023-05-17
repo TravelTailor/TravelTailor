@@ -7,7 +7,36 @@
     <p>Precipitation: {{Precipitation.Value}}mm</p>
   {{/with}}
 
+{{latitude}}
+{{longitude}}
+
+  <style>
+    /* Establece la altura del mapa */
+  #map {
+  height: 400px; /* o ajusta esta altura según tus necesidades */
+  min-height: 300px; /* o ajusta esta altura mínima según tus necesidades */
+}
+  </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+  
+
+ <div id="map"></div>
+
   <a href="/search">Search again</a>
   <br />
   <a href="/create-travel/{{city}}">Create your trip to {{city}}!</a>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYXlvemVtdCIsImEiOiJjbGg4MWFuaXMwNDNvM2RwbjBpMDU5d3BnIn0.qF6KE2gy5vwU0bW97zjfNQ'; // Reemplaza esto con tu propio access token de Mapbox
+
+    // Crea una instancia del mapa
+    var map = new mapboxgl.Map({
+      container: 'map', // ID del elemento HTML donde se mostrará el mapa
+      style: 'mapbox://styles/mapbox/streets-14', // Estilo del mapa (puedes cambiarlo según tus necesidades)
+      center: [{{longitude}},{{latitude}}], // Coordenadas iniciales del centro del mapa (reemplaza LONGITUDE y LATITUDE con tus propias coordenadas)
+      zoom: 12 // Nivel de zoom inicial
+    });
+  </script>
 </div>
