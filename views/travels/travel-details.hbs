@@ -32,6 +32,7 @@
                 <h3 class="my-3">{{travel.city}} for {{travel.budget}} €</h3>
                   <p>🗓️ Start date: {{formatDate travel.startDate}}</p>
   <p>🗓️ End date: {{formatDate travel.endDate}}</p>
+  <p>🗺️ Coordinates: {{latitude}} {{longitude}}</p>
   <a href="/travel-list/{{travel._id}}/edit">📝 Edit travel</a>
                 <h3 class="my-3">Travel Tasks</h3>
 
@@ -83,3 +84,43 @@
     document.querySelector('ul').innerHTML += '<li>Over budget</li>'
   }
 </script>
+
+
+
+  <style>
+    /* Establece la altura del mapa */
+  #map {
+  height: 400px; /* o ajusta esta altura según tus necesidades */
+  min-height: 300px; /* o ajusta esta altura mínima según tus necesidades */
+}
+  </style>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+  
+
+ <div id="map"></div>
+
+
+<script>
+
+    mapboxgl.accessToken = "{{accessToken}}"; // Access token de Mapbox
+
+    // Crea una instancia del mapa
+    var map = new mapboxgl.Map({
+      container: 'map', // ID del elemento HTML donde se mostrará el mapa
+      style: 'mapbox://styles/mapbox/streets-v12', // Estilo del mapa (puedes cambiarlo según tus necesidades)
+      center: [{{longitude}},{{latitude}}], // Coordenadas iniciales del centro del mapa (reemplaza LONGITUDE y LATITUDE con tus propias coordenadas)
+      zoom: 12 // Nivel de zoom inicial
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+

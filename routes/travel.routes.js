@@ -90,27 +90,34 @@ router.get('/travel-list', isLoggedIn, (req, res, next) => {
 });
 
 //Travel details
-router.get('/travel-list/:travelId', isLoggedIn, (req, res, next) => {
+router.get('/travel-list/:travelId', isLoggedIn, async(req, res, next) => {
     const { travelId } = req.params;
     let travel;
+
+    const accessToken = process.env.MAPBOX_API; // Access token de Mapbox
 
     Travel.findById(travelId)
         .then(travelFromDB => {
             travel = travelFromDB;
-            return Task.find({ travel: travelId });
+            return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(travel.city)}.json`, {
+                params: {
+                    access_token: accessToken
+                }
+            });
         })
-        .then((tasksFromDB) => res.render('travels/travel-details', { travel, tasks: tasksFromDB }))
+        .then(geocodeResponse => {
+            const coordinates = geocodeResponse.data.features[0].geometry.coordinates;
+            const longitude = coordinates[0];
+            const latitude = coordinates[1];
+            return Task.find({ travel: travelId })
+                .then((tasksFromDB) => {
+                    res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken });
+                });
+        })
         .catch(error => next(error));
 });
 
-//Delete travel
-router.post('/travel-list/:travelId/delete', isLoggedIn, (req, res, next) => {
-    const { travelId } = req.params;
 
-    Travel.findByIdAndRemove(travelId)
-        .then(() => res.redirect('/travel-list'))
-        .catch(error => next(error));
-});
 
 //Edit travel
 router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
