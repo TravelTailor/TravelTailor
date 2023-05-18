@@ -40,9 +40,18 @@
     <ul>
         <li><b>{{this.task}}:</b></li>
         <li>{{formatDate this.date}}</li>
-        <li>{{this.status}}</li>
-        <li>{{this.price}}</li>
+        <form action="/travel-list/{{../travel._id}}/edit-task/{{this._id}}" method="POST">
+        <li><label for="status">Status</label>
+        <select name="status" id="status" required="">
+        <option value="{{this.status}}" selected>{{this.status}}</option>
+        <option value="Done">Done</option>
+        <option value="Pending">Pending</option>
+        </select></li>
+        <li><label for="price">Price</label>
+        <input type="number" name="price" id="price" required="" value="{{this.price}}"/></li>
         <br />
+        <button type="submit">✏️ Save</button>
+        </form>
         <form action="/travel-list/{{../travel._id}}/delete-task/{{this._id}}" method="POST">
           <button type="submit">🗑️ Delete task</button>
         </form>

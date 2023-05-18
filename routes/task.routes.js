@@ -54,6 +54,19 @@ router.post("/travel-list/:travelId/delete-task/:taskId", isLoggedIn, (req, res,
         });
 });
 
+//Edit task form
+router.post("/travel-list/:travelId/edit-task/:taskId", isLoggedIn, (req, res, next) => {
+    const { travelId, taskId } = req.params;
+    const { task, date, status, price } = req.body;
+
+    Task.findByIdAndUpdate(taskId, { task, date, status, price }, { new: true })
+        .then((task) => {
+            console.log("Updated task: ", task);
+            res.redirect(`/travel-list/${travelId}`);
+        })
+        .catch((error) => next(error));
+});
+
 //Search tasks with API OpenTripMap data
 router.get("/travel-list/:travelId/create-task/search-task", (req, res, next) => {});
 
