@@ -20,7 +20,7 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 - **500** - As users, we want to see a nice 500 error page when the team behind the app brokes something and it's not our fault.
 - **Homepage** - As users, we want to access the homepage and be able to sign up and log in. :house:
 - **Search page** - As users, we want to search for a destination to travel to. :earth_africa:
-- **Search results page** - As users, we want to see how is the weather and explore the map of the place we have previously searched.
+- **Search results page** - As users, we want to see how is the weather and explore the map of the place we have previously searched. :partly_sunny:
 - **Create travel form** - As users, we want to be able to create our trip in the database by adding the dates and the budget we have. :money_with_wings:
 - **Travel list page** - As users, we want to see a list with our travels to find them at a glance. :eyes:
 - **Travel details page** - As users, we want to see the details of our trip and be able to add and edit tasks to do. :ballot_box_with_check:
