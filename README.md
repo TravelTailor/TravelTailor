@@ -1,8 +1,12 @@
 # TravelTailor
 
+## app access
+
+[Try TravelTailor!](https://travel-tailor.fly.dev)
+
 ## Description
 
-TravelTailor is an online tool that unifies some necessary utilities to plan your trips. These utilities will help you find out the weather, search for points of interest and explore the maps of the places you want to visit. You can also save all your trips and tasks in the database associated with your user.
+TravelTailor is an online tool that unifies some necessary utilities to plan your trips. These utilities will help you find out the weather, search for points of interest and explore the maps of the places you want to visit. You can also save all your trips and tasks in the database associated to your user.
 
 ## Built with
 
@@ -113,4 +117,4 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 
 [GitHub](https://github.com/TravelTailor/TravelTailor)
 
-[fly.io](https://travel-tailor.fly.dev/)
+[fly.io](https://travel-tailor.fly.dev)
