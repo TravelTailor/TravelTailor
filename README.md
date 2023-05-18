@@ -19,16 +19,16 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 - **404** - As users, we want to see a nice 404 error page when I go to a page that doesn’t exist so that we know it was our fault.
 - **500** - As users, we want to see a nice 500 error page when the team behind the app brokes something and it's not our fault.
 - **Homepage** - As users, we want to access the homepage and be able to sign up and log in.
-- **Search page** - As users, we want to search for a destination to travel to.
-- **Search results page** As users, we want to see how is the weather and explore the map of the place we have previously searched.
-- **Create travel form** As users, we want to be able to create our trip in the database by adding the dates and the budget we have.
-- **Travel list page** As users, we want to see a list with our travels to find them at a glance.
-- **Travel details page** As users, we want to see the details of our trip and be able to add and edit tasks to do.
-- **Create tasks page** As users, we want to search among the points of interest of the place that we will visit to help us create tasks to do on our trip, adding a date and its cost.
-- **Edit travel page** As users, we want to be able to edit the dates of our travel, the budget we have and an image that represents our trip.
-- **Profile user page** As users, we want see our data and be able to edit it, adding an avatar picture and our real name if we wish for it.
-- **Sign up form** As users, we want to be able to create an account and become a traveller.
-- **Log in form** As users, we want to enter TravelTailor and begin to use this amazing app!
+- **Search page** - As users, we want to search for a destination to travel to. :earth_africa:
+- **Search results page** - As users, we want to see how is the weather and explore the map of the place we have previously searched.
+- **Create travel form** - As users, we want to be able to create our trip in the database by adding the dates and the budget we have.
+- **Travel list page** - As users, we want to see a list with our travels to find them at a glance.
+- **Travel details page** - As users, we want to see the details of our trip and be able to add and edit tasks to do.
+- **Create tasks page** - As users, we want to search among the points of interest of the place that we will visit to help us create tasks to do on our trip, adding a date and its cost.
+- **Edit travel page** - As users, we want to be able to edit the dates of our travel, the budget we have and an image that represents our trip. :statue_of_liberty:
+- **Profile user page** - As users, we want see our data and be able to edit it, adding an avatar picture and our real name if we wish for it.
+- **Sign up form** - As users, we want to be able to create an account and become a traveller.
+- **Log in form** - As users, we want to enter TravelTailor and begin to use this amazing app! :airplane:
 
 ## Server Routes (back-end)
 
