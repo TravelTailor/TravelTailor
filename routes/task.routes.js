@@ -67,7 +67,4 @@ router.post("/travel-list/:travelId/edit-task/:taskId", isLoggedIn, (req, res, n
         .catch((error) => next(error));
 });
 
-//Search tasks with API OpenTripMap data
-router.get("/travel-list/:travelId/create-task/search-task", (req, res, next) => {});
-
 module.exports = router;
