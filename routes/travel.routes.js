@@ -117,7 +117,14 @@ router.get('/travel-list/:travelId', isLoggedIn, async(req, res, next) => {
         .catch(error => next(error));
 });
 
+//Delete travel
+router.post('/travel-list/:travelId/delete', isLoggedIn, (req, res, next) => {
+    const { travelId } = req.params;
 
+    Travel.findByIdAndRemove(travelId)
+        .then(() => res.redirect('/travel-list'))
+        .catch(error => next(error));
+});
 
 //Edit travel
 router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
@@ -141,13 +148,5 @@ router.post('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
         })
         .catch(error => next(error));
 });
-
-
-
-
-
-
-
-
 
 module.exports = router;
