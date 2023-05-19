@@ -1,0 +1,26 @@
+.card {
+  color: #858796 !important;
+  border-top: 4px solid #691c32;
+  background-color: #fff;
+  font-family: 'Nunito Sans';
+  font-size: 12px !important;
+}
+
+th {
+  background-color: #10312b !important;
+  color: white;
+  text-align: center;
+}
+
+.th-tabla {
+  border-radius: 15px !important;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  padding: 15px !important;
+}
+
