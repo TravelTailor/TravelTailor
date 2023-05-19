@@ -11,7 +11,7 @@ router.get("/travel-list/:travelId/create-task", isLoggedIn, (req, res, next) =>
 
     Travel.findById(travelId)
         .then((travel) => {
-            res.render("tasks/create-task", { travel, apiKey });
+            res.render("tasks/create-task", { travel, apiKey, userInSession: req.session.currentUser });
         })
         .catch((error) => next(error));
 });

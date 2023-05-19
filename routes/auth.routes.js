@@ -100,7 +100,7 @@ router.get('/userProfile/:id/edit', isLoggedIn, (req, res, next) => {
     User.findById(req.session.currentUser._id)
         .then(user => {
             console.log('User is: ', user);
-            res.render('users/user-profile-edit', { user });
+            res.render('users/user-profile-edit', { user, userInSession: user });
         })
         .catch(error => next(error));
 });
