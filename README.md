@@ -20,13 +20,13 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 - **500** - As users, we want to see a nice 500 error page when the team behind the app breaks something and it's not our fault.
 - **Homepage** - As users, we want to access the homepage and be able to sign up and log in. :house:
 - **Search page** - As users, we want to search for a destination to travel to. :earth_africa:
-- **Search results page** - As users, we want to see how is the weather and explore the map of the place we have previously searched. :partly_sunny:
+- **Search results page** - As users, we want to see how the weather is and explore the map of the place we have previously searched. :partly_sunny:
 - **Create travel form** - As users, we want to be able to create our trip in the database by adding the dates and the budget we have. :money_with_wings:
-- **Travel list page** - As users, we want to see a list with our trips to find them at a glance. :eyes:
+- **Travel list page** - As users, we want to see a list of our trips to find them at a glance. :eyes:
 - **Travel details page** - As users, we want to see the details of our trip and be able to add and edit tasks to do. :compass:
 - **Create tasks page** - As users, we want to search among the points of interest of our destination to help us create tasks to do, adding a date and its cost. :mag_right:
 - **Edit travel page** - As users, we want to be able to edit the dates of our trip, the budget we have and an image that represents it. :statue_of_liberty:
-- **Profile user page** - As users, we want see our data and be able to edit it, adding an avatar picture and our real name if we wish for it. :raising_hand:
+- **Profile user page** - As users, we want to see our data and be able to edit it, adding an avatar picture and our real name if we wish for it. :raising_hand:
 - **Sign up form** - As users, we want to be able to create an account and become a traveller. :luggage:
 - **Log in form** - As users, we want to enter TravelTailor and begin to use this amazing app! :airplane:
 
