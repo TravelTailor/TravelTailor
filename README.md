@@ -16,8 +16,8 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 
 ## User stories
 
-- **404** - As users, we want to see a nice 404 error page when we go to a page that doesn’t exist so that we know it was our fault. :cold_sweat:
-- **500** - As users, we want to see a nice 500 error page when the team behind the app brokes something and it's not our fault.
+- **404** - As users, we want to see a nice 404 error page when we go to a page that doesn’t exist so we know it's our fault. :cold_sweat:
+- **500** - As users, we want to see a nice 500 error page when the team behind the app breaks something and it's not our fault.
 - **Homepage** - As users, we want to access the homepage and be able to sign up and log in. :house:
 - **Search page** - As users, we want to search for a destination to travel to. :earth_africa:
 - **Search results page** - As users, we want to see how is the weather and explore the map of the place we have previously searched. :partly_sunny:
