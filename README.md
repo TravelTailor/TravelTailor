@@ -32,6 +32,19 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 
 ## Server Routes (back-end)
 
+|     **Route**    | **HTTP Verb** |                     **Description**                    | **Request - body** |
+|------------------|---------------|--------------------------------------------------------|--------------------|
+|        `/`       |     `GET`     | Main screen. Renders `index` view.                     |                    |
+|   `/signup`      |     `GET`     | Sign up form. Renders `signup` view.                   |                    |
+|   `/signup`      |     `POST`    | Sends signup form and creates User in DB. Redirects to `/userProfile`|{ username, email, password }|
+|   `/login`       |     `GET`     | Login form. Renders `login` view.                      |                    |
+|   `/login`       |     `POST`    | Sends login form, redirects to `/search`.              |  {email, password} |
+|   `/logout`      |     `GET`     | Log out button. Redirects to `index` view.             |                    |
+|   `/search`      |     `GET`     | Destination search bar. Renders `search` view.         |                    |
+|   `/city-search` |     `GET`     | Query results page. Renders `city-search-result` view. |  req.query.city    |
+|   `/create-travel/:city` |     `GET`     | Create travel form. Renders `create-travel` view. |  req.params.city   |
+|   `/create-travel/:city` |     `POST`    | Sends travel form. Redirects to `/travel-list` |{ country, city, startDate, endDate, budget }|
+
 ## Models
 
 ### Travel.model.js
