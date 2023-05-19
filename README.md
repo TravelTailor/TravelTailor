@@ -16,7 +16,7 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 
 ## User stories
 
-- **404** - As users, we want to see a nice 404 error page when I go to a page that doesn’t exist so that we know it was our fault. :cold_sweat:
+- **404** - As users, we want to see a nice 404 error page when we go to a page that doesn’t exist so that we know it was our fault. :cold_sweat:
 - **500** - As users, we want to see a nice 500 error page when the team behind the app brokes something and it's not our fault.
 - **Homepage** - As users, we want to access the homepage and be able to sign up and log in. :house:
 - **Search page** - As users, we want to search for a destination to travel to. :earth_africa:
@@ -36,7 +36,7 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 |------------------|---------------|--------------------------------------------------------|--------------------|
 |        `/`       |     `GET`     | Main screen. Renders `index` view.                     |                    |
 |   `/signup`      |     `GET`     | Sign up form. Renders `signup` view.                   |                    |
-|   `/signup`      |     `POST`    | Sends signup form and creates User in DB. Redirects to `/userProfile`|{ username, email, password }|
+|   `/signup`      |     `POST`    | Sends signup form and creates User in DB. Redirects to `/userProfile`. |{ username, email, password }|
 |   `/login`       |     `GET`     | Login form. Renders `login` view.                      |                    |
 |   `/login`       |     `POST`    | Sends login form, redirects to `/search`.              |  {email, password} |
 |   `/logout`      |     `GET`     | Log out button. Redirects to `index` view.             |                    |
@@ -44,6 +44,10 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 |   `/city-search` |     `GET`     | Query results page. Renders `city-search-result` view. |  req.query.city    |
 |   `/create-travel/:city` |     `GET`     | Create travel form. Renders `create-travel` view. |  req.params.city   |
 |   `/create-travel/:city` |     `POST`    | Sends travel form. Redirects to `/travel-list` |{ country, city, startDate, endDate, budget }|
+|   `/travel-list` |     `GET`     | Our travel list page. Renders `travel-list` view.      |                    |
+|   `/travel-list/:travelId` |     `GET`     | Travel details page. Renders `travel-details` view. |  req.params.travelId |
+|   `/travel-list/:travelId/edit` |     `GET`     | Edit travel form. Renders `edit-travel` view. |  req.params.travelId |
+|   `/travel-list/:travelId/edit` |     `POST`    | Sends edit travel form. Redirects to `/travel-list/${travelId}`. |{ country, city, travelImg, startDate, endDate, budget }|
 
 ## Models
 
