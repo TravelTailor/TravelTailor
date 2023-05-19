@@ -87,7 +87,12 @@ router.get('/logout', isLoggedIn, (req, res, next) => {
 
 //User profile
 router.get('/userProfile', isLoggedIn, (req, res, next) => {
-    res.render('users/user-profile', { userInSession: req.session.currentUser });
+    User.findById(req.session.currentUser._id)
+        .then(user => {
+            console.log('User is: ', user);
+            res.render('users/user-profile', { userInSession: user });
+        })
+        .catch(error => next(error));
 });
 
 //User profile edit
