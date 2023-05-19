@@ -48,7 +48,6 @@ router.get('/city-search', isLoggedIn, async(req, res, next) => {
 });
 
 
-
 //Create travel form
 router.get('/create-travel/:city', isLoggedIn, (req, res, next) => {
     const { city } = req.params;
@@ -93,6 +92,14 @@ router.get('/travel-list', isLoggedIn, (req, res, next) => {
 router.get('/travel-list/:travelId', isLoggedIn, async(req, res, next) => {
     const { travelId } = req.params;
     let travel;
+    
+    function sumOfAllTaskPrices(tasks) {
+        let sum = 0;
+        tasks.forEach(task => {
+            sum += task.price;
+        });
+        return sum;
+    }
 
     const accessToken = process.env.MAPBOX_API; // Access token de Mapbox
 
@@ -111,7 +118,13 @@ router.get('/travel-list/:travelId', isLoggedIn, async(req, res, next) => {
             const latitude = coordinates[1];
             return Task.find({ travel: travelId })
                 .then((tasksFromDB) => {
+                    if(sumOfAllTaskPrices(tasksFromDB) > travel.budget) {
+                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, errorMessage: `You have exceeded your budget in ${sumOfAllTaskPrices(tasksFromDB)-(travel.budget)}€!` });
+                    } else if (tasksFromDB.length === 0) {
+                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, errorMessage2: `You have not added any tasks yet!` });
+                    } else {
                     res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken });
+                    }
                 });
         })
         .catch(error => next(error));
