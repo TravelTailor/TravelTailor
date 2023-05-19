@@ -150,6 +150,10 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
     }
   }
 ```
+## Backlog
+
+- Use a flight API like Skyscanner.
+
 ## Links
 
 [Trello](https://trello.com/b/bo4y8dau/travel-tailor)
