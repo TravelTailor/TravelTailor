@@ -10,7 +10,7 @@ require('dotenv').config();
 
 
 //Search index
-router.get('/search', isLoggedIn, (req, res, next) => res.render('travels/search'));
+router.get('/search', isLoggedIn, (req, res, next) => res.render('travels/search', { userInSession: req.session.currentUser }));
 
 
 //Mapbox + Accuweather
@@ -35,7 +35,7 @@ router.get('/city-search', isLoggedIn, async(req, res, next) => {
             .getCurrentConditions(city, { unit: "Celsius" })
             .then(function(result) {
                 console.log(result);
-                res.render('travels/city-search-result', { city, latitude, longitude, result, accessToken });
+                res.render('travels/city-search-result', { city, latitude, longitude, result, accessToken, userInSession: req.session.currentUser });
             })
             .catch(function(error) {
                 console.error(error);
@@ -52,7 +52,7 @@ router.get('/city-search', isLoggedIn, async(req, res, next) => {
 router.get('/create-travel/:city', isLoggedIn, (req, res, next) => {
     const { city } = req.params;
 
-    res.render('travels/create-travel', { city });
+    res.render('travels/create-travel', { city, userInSession: req.session.currentUser });
 });
 
 router.post('/create-travel/:city', isLoggedIn, (req, res, next) => {
@@ -83,7 +83,7 @@ router.get('/travel-list', isLoggedIn, (req, res, next) => {
     Travel.find({ user: req.session.currentUser._id })
         .then(travelsFromDB => {
             console.log('Travels from DB: ', travelsFromDB);
-            res.render('travels/travel-list', { travels: travelsFromDB });
+            res.render('travels/travel-list', { travels: travelsFromDB, userInSession: req.session.currentUser });
         })
         .catch(error => next(error));
 });
@@ -119,11 +119,11 @@ router.get('/travel-list/:travelId', isLoggedIn, async(req, res, next) => {
             return Task.find({ travel: travelId })
                 .then((tasksFromDB) => {
                     if(sumOfAllTaskPrices(tasksFromDB) > travel.budget) {
-                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, errorMessage: `You have exceeded your budget in ${sumOfAllTaskPrices(tasksFromDB)-(travel.budget)}€!` });
+                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, userInSession: req.session.currentUser, errorMessage: `You have exceeded your budget in ${sumOfAllTaskPrices(tasksFromDB)-(travel.budget)}€!` });
                     } else if (tasksFromDB.length === 0) {
-                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, errorMessage2: `You have not added any tasks yet!` });
+                        res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, userInSession: req.session.currentUser, errorMessage2: `You have not added any tasks yet!` });
                     } else {
-                    res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken });
+                    res.render('travels/travel-details', { travel, tasks: tasksFromDB, latitude, longitude, accessToken, userInSession: req.session.currentUser });
                     }
                 });
         })
@@ -146,7 +146,7 @@ router.get('/travel-list/:travelId/edit', isLoggedIn, (req, res, next) => {
         .populate('tasks')
         .then(travelFromDB => {
             console.log('Travel from DB: ', travelFromDB);
-            res.render('travels/edit-travel', { travel: travelFromDB });
+            res.render('travels/edit-travel', { travel: travelFromDB, userInSession: req.session.currentUser });
         })
         .catch(error => next(error));
 });

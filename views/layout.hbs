@@ -34,15 +34,20 @@
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="/"><img src="/assets/img/traveltailorwhite.png" width="99" height="28"></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/travel-list">My Travels</a></li>
                     {{!-- <li class="nav-item"><a class="nav-link" href="#">iPad</a></li> --}}
                     {{!-- <li class="nav-item"><a class="nav-link" href="#">iPhone</a></li> --}}
                     {{!-- <li class="nav-item"><a class="nav-link" href="#">Watch</a></li> --}}
                     {{!-- <li class="nav-item"><a class="nav-link" href="#">TV</a></li> --}}
-                    {{!-- <li class="nav-item"><a class="nav-link" href="#">Music</a></li> --}}
+                    {{#unless userInSession}}
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="/userProfile">Profile  <i class="la la-user"></i></a></li>
+                    {{/unless}}
+                    {{#if userInSession}}
+                    <li class="nav-item"><a class="nav-link" href="/travel-list">My Travels</a></li>
                     <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="/search"><i class="icon ion-ios-search-strong"></i>  Search</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="/userProfile">Profile  <i class="la la-user"></i></a></li>
+                    <li class="nav-item d-none d-xs-block d-md-block"><a class="nav-link" href="/userProfile">Welcome, {{userInSession.username}}! <i class="la la-user"></i></a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>
