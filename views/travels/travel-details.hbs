@@ -29,12 +29,14 @@
         <div class="row" style="margin-top: 50px;margin-bottom: 20px;">
             <div class="col-md-8"><img class="img-fluid" src="{{travel.travelImg}}" alt="Alt Text" style="margin-top: 1px;"></div>
             <div class="col-md-4">
-                <h3 class="my-3">{{travel.city}} for {{travel.budget}} €</h3>
+                <h3 class="my-3">{{travel.city}} for {{travel.budget}}€</h3>
+                <h3 style="color: darkred;">{{errorMessage}}</h3>
                   <p>🗓️ Start date: {{formatDate travel.startDate}}</p>
   <p>🗓️ End date: {{formatDate travel.endDate}}</p>
   <p>🗺️ Coordinates: {{latitude}} {{longitude}}</p>
   <a href="/travel-list/{{travel._id}}/edit">📝 Edit travel</a>
                 <h3 class="my-3">Travel Tasks</h3>
+                <h3 style="color: darkred;">{{errorMessage2}}</h3>
 
 {{#each tasks}}
     <ul>
@@ -84,17 +86,6 @@
 <br />
 
 
-<script>
-  if ({{travel.tasks.length}} === 0) {
-    document.querySelector('ul').innerHTML = '<li>No tasks yet</li>'
-  }
-
-  if ({{travel.budget}} < ({{travel.tasks}}.reduce((acc, task) => acc + task.price, 0))) {
-    document.querySelector('ul').innerHTML += '<li>Over budget</li>'
-  }
-</script>
-
-
 
   <style>
     /* Establece la altura del mapa */
@@ -123,13 +114,3 @@
       zoom: 12 // Nivel de zoom inicial
     });
   </script>
-
-
-
-
-
-
-
-
-
-
