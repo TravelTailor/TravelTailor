@@ -52,7 +52,7 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 |   `/travel-list/:travelId/create-task` |     `POST`    | Sends task form. Redirects to `/travel-list/${travelId}`. |{ task, date, status, price }|
 |   `/travel-list/:travelId/edit-task/:taskId` |     `POST`    | Edit task form. Redirects to `/travel-list/${travelId}`. |{ task, date, status, price }|
 |   `/travel-list/:travelId/delete-task/:taskId` |     `POST`    | Deletes a task. Redirects to `/travel-list/${travelId}`. |  req.params.taskId |
-|   `/userProfile` |     `GET`     | User profile page. Renders `user-profile` view.        |                    |
+|   `/userProfile` |     `GET`     | User profile page. Renders `user-profile` view.        |  req.session.currentUser |
 |   `/userProfile/:id/edit` |     `GET`     | Edit user data form. Renders `user-profile-edit` view. |  req.session.currentUser |
 |   `/userProfile/:id/edit` |     `POST`    | Sends user data form. Redirects to `/userProfile`. |{ username, email, profileImg, name }|
 |   `/logout`      |     `GET`     | Log out button. Redirects to `index` view.             |                    |
