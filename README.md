@@ -39,7 +39,6 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 |   `/signup`      |     `POST`    | Sends signup form and creates User in DB. Redirects to `/userProfile`. |{ username, email, password }|
 |   `/login`       |     `GET`     | Login form. Renders `login` view.                      |                    |
 |   `/login`       |     `POST`    | Sends login form, redirects to `/search`.              |  {email, password} |
-|   `/logout`      |     `GET`     | Log out button. Redirects to `index` view.             |                    |
 |   `/search`      |     `GET`     | Destination search bar. Renders `search` view.         |                    |
 |   `/city-search` |     `GET`     | Query results page. Renders `city-search-result` view. |  req.query.city    |
 |   `/create-travel/:city` |     `GET`     | Create travel form. Renders `create-travel` view. |  req.params.city   |
@@ -48,10 +47,15 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 |   `/travel-list/:travelId` |     `GET`     | Travel details page. Renders `travel-details` view. |  req.params.travelId |
 |   `/travel-list/:travelId/edit` |     `GET`     | Edit travel form. Renders `edit-travel` view. |  req.params.travelId |
 |   `/travel-list/:travelId/edit` |     `POST`    | Sends edit travel form. Redirects to `/travel-list/${travelId}`. |{ country, city, travelImg, startDate, endDate, budget }|
+|   `/travel-list/:travelId/delete` |     `POST`    | Deletes a trip. Redirects to `/travel-list`. |  req.params.travelId |
 |   `/travel-list/:travelId/create-task` |     `GET`     | Create task form. Renders `create-task` view. |  req.params.travelId |
 |   `/travel-list/:travelId/create-task` |     `POST`    | Sends task form. Redirects to `/travel-list/${travelId}`. |{ task, date, status, price }|
 |   `/travel-list/:travelId/edit-task/:taskId` |     `POST`    | Edit task form. Redirects to `/travel-list/${travelId}`. |{ task, date, status, price }|
 |   `/travel-list/:travelId/delete-task/:taskId` |     `POST`    | Deletes a task. Redirects to `/travel-list/${travelId}`. |  req.params.taskId |
+|   `/userProfile` |     `GET`     | User profile page. Renders `user-profile` view.        |                    |
+|   `/userProfile/:id/edit` |     `GET`     | Edit user data form. Renders `user-profile-edit` view. |  req.session.currentUser |
+|   `/userProfile/:id/edit` |     `POST`    | Sends user data form. Redirects to `/userProfile`. |{ username, email, profileImg, name }|
+|   `/logout`      |     `GET`     | Log out button. Redirects to `index` view.             |                    |
 
 ## Models
 
