@@ -24,7 +24,7 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 - **Create travel form** - As users, we want to be able to create our trip in the database by adding the dates and the budget we have. :money_with_wings:
 - **Travel list page** - As users, we want to see a list with our trips to find them at a glance. :eyes:
 - **Travel details page** - As users, we want to see the details of our trip and be able to add and edit tasks to do. :compass:
-- **Create tasks page** - As users, we want to search among the points of interest of our destination to help us create tasks to do on our trip, adding a date and its cost. :mag_right:
+- **Create tasks page** - As users, we want to search among the points of interest of our destination to help us create tasks to do, adding a date and its cost. :mag_right:
 - **Edit travel page** - As users, we want to be able to edit the dates of our travel, the budget we have and an image that represents our trip. :statue_of_liberty:
 - **Profile user page** - As users, we want see our data and be able to edit it, adding an avatar picture and our real name if we wish for it. :raising_hand:
 - **Sign up form** - As users, we want to be able to create an account and become a traveller. :luggage:
