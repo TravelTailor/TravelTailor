@@ -161,3 +161,5 @@ TravelTailor is an online tool that unifies some necessary utilities to plan you
 [GitHub](https://github.com/TravelTailor/TravelTailor)
 
 [fly.io](https://travel-tailor.fly.dev)
+
+[Slides](http://gofile.me/738Qy/TwO5NuI1V)
